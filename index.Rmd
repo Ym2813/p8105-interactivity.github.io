@@ -32,3 +32,7 @@ the following image is an example of changing the width
 
 ## Adding text file in the directory
 This _site.yml text file gives a navigation bar on the website 
+
+## Quit and re enter R studio
+
+it will realize thay we r making a website, there will be a "Build" on the left next to "Commit"
