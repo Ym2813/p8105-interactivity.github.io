@@ -1,0 +1,34 @@
+---
+title: "My awesome website"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+
+---
+
+# This is Jeff's awesome website
+
+![](https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif)
+
+This gif is found online
+
+I can link to useful things like [google](https://www.google.com/) and [p8105](https://www.p8105.com.)
+
+I can make an extra page on my site and link to that, here's my [about](about.html). 
+
+This "about" website is in our directory, so don't have to go online to look for sites, can just use the html link
+
+## Adding pictures to the web. 
+
+Here's my cutie egg thief caught in action: 
+
+![](image/IMG_8647.jpeg)
+
+this image is from the local directory.
+the following image is an example of changing the width
+
+<img src="image/IMG_8647.jpeg" style="width:75%">
+
+## Adding text file in the directory
+This _site.yml text file gives a navigation bar on the website 
