@@ -36,3 +36,6 @@ This _site.yml text file gives a navigation bar on the website
 ## Quit and re enter R studio
 
 it will realize thay we r making a website, there will be a "Build" on the left next to "Commit"
+
+## Change theme
+in the _site.yml, change theme to for example, cosmo, go to "Build", "Build Website" and then "Save selected"
