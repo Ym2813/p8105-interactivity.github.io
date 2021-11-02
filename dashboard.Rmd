@@ -1,26 +1,20 @@
 ---
-title: "Plotly"
+title: "Dashboard"
 output: 
-  html_document:
-    toc: true
-    toc_float: true
-
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
 ---
 
-This page is about making plotly examples
+```{r setup, include=FALSE}
+library(flexdashboard)
 
-add this to the site.yml to prompt this page to the website that we created last time. 
 
-```{r}
 library(tidyverse)
 library(p8105.datasets)
 
 library(plotly)
-```
 
-Let's look at the NYC airbnb data
-
-```{r}
 data("nyc_airbnb")
 
 nyc_airbnb = 
@@ -33,11 +27,17 @@ nyc_airbnb =
     price %in% 100:500
   ) %>% 
   drop_na(stars)
+
+#include the following line to mkae dash board work even in local directory
+#rmarkdown::render("dashboard_template.Rmd", output_format = "flexdashboard::flex_dashboard")
 ```
 
-## Make a scatterplot
 
-Here's a plotly scatterplot!
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
 
 ```{r}
 # \n means put it on a new line
@@ -52,17 +52,19 @@ nyc_airbnb %>%
 ```
 
 
-## Plotly Boxplot
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
 
 ```{r}
-# order the neighborhood variable by price
 nyc_airbnb %>% 
   mutate(neighbourhood = fct_reorder(neighbourhood,price)) %>% 
   plot_ly(y = ~price, color = ~neighbourhood, type = "box",
           colors = "viridis")
 ```
 
-## Bar Chart
+### Chart C
 
 ```{r}
 nyc_airbnb %>% 
@@ -71,22 +73,3 @@ nyc_airbnb %>%
   plot_ly(x = ~neighbourhood, y = ~n, color = ~neighbourhood, type = "bar", colors = "viridis")
 ```
 
-
-## ggplotly
-
-```{r}
-scatter_ggplot = 
-  nyc_airbnb %>%
-  ggplot(aes(x = lat, y = long, color = price)) +
-  geom_point(alpha = 0.25) +
-  coord_cartesian()
-
-ggplotly(scatter_ggplot)
-```
-
-## dashboard
-
-file, new file, r markdown, template, and then flex_dashboard to create the new r markdown file 
-source code embed can embed the code on our webpage. 
-
-example can be found on our course web [page](https://www.p8105.com./plotly_and_dashboards.html)
